@@ -21,6 +21,8 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
+import org.apache.log4j.Logger;
+
 /**
  * A class that represents an SSL/TLS peer, and can be extended to create a client or a server.
  * <p/>
@@ -37,12 +39,11 @@ import javax.net.ssl.TrustManagerFactory;
  * @author <a href="mailto:travelling.with.code@gmail.com">Alex</a>
  */
 public abstract class NioSslPeer {
-	
+
 	/**
 	 * Class' logger.
 	 */
-//	protected final Logger log = Logger.getLogger(getClass().getName());
-	protected final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(getClass());
+	protected final Logger log = Logger.getLogger(getClass());
 
     /**
      * Will contain this peer's application data in plaintext, that will be later encrypted
@@ -89,7 +90,7 @@ public abstract class NioSslPeer {
      * Implements the handshake protocol between two peers, required for the establishment of the SSL/TLS connection.
      * During the handshake, encryption configuration information - such as the list of available cipher suites - will be exchanged
      * and if the handshake is successful will lead to an established SSL/TLS session.
-     * 
+     *
      * <p/>
      * A typical handshake will usually contain the following steps:
      *
@@ -104,7 +105,7 @@ public abstract class NioSslPeer {
      * </ul>
      * <p/>
      * Handshake is also used during the end of the session, in order to properly close the connection between the two peers.
-     * A proper connection close will typically include the one peer sending a CLOSE message to another, and then wait for 
+     * A proper connection close will typically include the one peer sending a CLOSE message to another, and then wait for
      * the other's CLOSE message to close the transport link. The other peer from his perspective would read a CLOSE message
      * from his peer and then enter the handshake procedure to send his own CLOSE message as well.
      *
