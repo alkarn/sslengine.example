@@ -1,3 +1,6 @@
-target
 .project
+.classpath
+.settings
 bin
+target
+data

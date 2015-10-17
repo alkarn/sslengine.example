@@ -2,22 +2,26 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>travelling.with.code.sslengine.implementation</groupId>
-  <artifactId>sslengine.implementation</artifactId>
-  <packaging>jar</packaging>
+  <groupId>travelling.with.code</groupId>
+  <artifactId>sslengine.example</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>sslengine.implementation</name>
-  <url>http://maven.apache.org</url>
+  <name>Server and Client implementation with SSLEngine</name>
+
+  <properties>
+    <java-version>1.8</java-version>
+    <maven-compiler-plugin-version>3.3</maven-compiler-plugin-version>
+    <log4j-version>1.2.17</log4j-version>
+  </properties>
 
   <build>
     <plugins>
     <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.3</version>
+      <version>${maven-compiler-plugin-version}</version>
       <configuration>
-        <source>1.8</source>
-        <target>1.8</target>
+        <source>${java-version}</source>
+        <target>${java-version}</target>
       </configuration>
     </plugin>
     </plugins>
@@ -27,7 +31,7 @@
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <version>1.2.17</version>
+      <version>${log4j-version}</version>
     </dependency>
  </dependencies>
 
