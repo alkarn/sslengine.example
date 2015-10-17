@@ -1,4 +1,4 @@
-# sslengine.implementation
+# Server and Client implementation with SSLEngine
 
 Implementation of a Java SSL/TLS server and client, making use of JSSE framework and specifically the SSLEngine class.
 
