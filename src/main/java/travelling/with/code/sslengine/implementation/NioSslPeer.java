@@ -273,24 +273,19 @@ public abstract class NioSslPeer {
     }
 
     /**
-     * Handles {@link SSLEngineResult.Status#BUFFER_UNDERFLOW}. Will check if the buffer is already filled, and if there is no space problem
-     * will return the same buffer, so the client tries to read again. If the buffer is already filled will try to enlarge the buffer either to
-     * session's proposed size or to a larger capacity. A buffer underflow can happen only after an unwrap, so the buffer will always be a
-     * peerNetData buffer.
+     * Handles {@link SSLEngineResult.Status#BUFFER_UNDERFLOW}. Will enlarge the buffer either to session's proposed size or to  
+     * a larger capacity. A buffer underflow can happen only after an unwrap, so the buffer will always be a peerNetData buffer.
      *
      * @param buffer - will always be peerNetData buffer.
      * @param engine - the engine used for encryption/decryption of the data exchanged between the two peers.
-     * @return The same buffer if there is no space problem or a new buffer with the same data but more space.
+     * @return new buffer with the same data but more space.
      * @throws Exception
      */
     protected ByteBuffer handleBufferUnderflow(SSLEngine engine, ByteBuffer buffer) {
-        if (buffer.position() < buffer.limit()) {
-            return buffer;
-        } else {
-            ByteBuffer replaceBuffer = enlargePacketBuffer(engine, buffer);
-            buffer.flip();
-            replaceBuffer.put(buffer);
-            return replaceBuffer;
+          ByteBuffer replaceBuffer = enlargePacketBuffer(engine, buffer);
+          buffer.flip();
+          replaceBuffer.put(buffer);
+          return replaceBuffer;
         }
     }
 
