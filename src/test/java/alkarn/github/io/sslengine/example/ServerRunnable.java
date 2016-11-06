@@ -1,4 +1,4 @@
-package travelling.with.code.sslengine.implementation;
+package alkarn.github.io.sslengine.example;
 
 /**
  * This class provides a runnable that can be used to initialize a {@link NioSslServer} thread.
@@ -8,7 +8,7 @@ package travelling.with.code.sslengine.implementation;
  * <p/>
  * Also a stop method is provided in order to gracefully close the server and stop the thread.
  * 
- * @author <a href="mailto:travelling.with.code@gmail.com">Alex</a>
+ * @author <a href="mailto:alex.a.karnezis@gmail.com">Alex Karnezis</a>
  */
 public class ServerRunnable implements Runnable {
 

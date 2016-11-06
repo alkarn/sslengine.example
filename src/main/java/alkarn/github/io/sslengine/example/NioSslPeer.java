@@ -1,4 +1,4 @@
-package travelling.with.code.sslengine.implementation;
+package alkarn.github.io.sslengine.example;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -36,7 +36,7 @@ import org.apache.log4j.Logger;
  * {@link NioSslPeer#write(SocketChannel, SSLEngine, String)} methods, that need to be implemented by the specific SSL/TLS peer
  * that is going to extend this class.
  *
- * @author <a href="mailto:travelling.with.code@gmail.com">Alex</a>
+ * @author <a href="mailto:alex.a.karnezis@gmail.com">Alex Karnezis</a>
  */
 public abstract class NioSslPeer {
 
@@ -284,7 +284,7 @@ public abstract class NioSslPeer {
      * @throws Exception
      */
     protected ByteBuffer handleBufferUnderflow(SSLEngine engine, ByteBuffer buffer) {
-        if (buffer.position() < buffer.limit()) {
+        if (engine.getSession().getPacketBufferSize() < buffer.limit()) {
             return buffer;
         } else {
             ByteBuffer replaceBuffer = enlargePacketBuffer(engine, buffer);

@@ -1,4 +1,4 @@
-package travelling.with.code.sslengine.implementation;
+package alkarn.github.io.sslengine.example;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -29,7 +29,7 @@ import javax.net.ssl.SSLSession;
  * NioSslServer makes use of Java NIO, and specifically listens to new connection requests with a {@link ServerSocketChannel}, which will
  * create new {@link SocketChannel}s and a {@link Selector} which serves all the connections in one thread.
  *
- * @author <a href="mailto:travelling.with.code@gmail.com">Alex</a>
+ * @author <a href="mailto:alex.a.karnezis@gmail.com">Alex Karnezis</a>
  */
 public class NioSslServer extends NioSslPeer {
 	

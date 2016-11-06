@@ -1,4 +1,4 @@
-package travelling.with.code.sslengine.implementation;
+package alkarn.github.io.sslengine.example;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -21,7 +21,7 @@ import javax.net.ssl.SSLSession;
  * When the connection between the client and the object is established, {@link NioSslClient} provides
  * a public write and read method, in order to communicate with its peer. 
  *
- * @author <a href="mailto:travelling.with.code@gmail.com">Alex</a>
+ * @author <a href="mailto:alex.a.karnezis@gmail.com">Alex Karnezis</a>
  */
 public class NioSslClient extends NioSslPeer {
 	
