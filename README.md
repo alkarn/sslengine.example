@@ -4,9 +4,9 @@ Implementation of a Java SSL/TLS server and client, making use of JSSE framework
 
 ## An introduction to JSSE
 
-JSSE is the standard way Java provides to implement SSL/TLS communication. One of its core classes is `SSLContext`, which you can easilly configure and equally easily get an input and output stream from. These streams though will be blocking, since `available()` will always return false for SSL/TLS connections. In order to achive a non-blocking SSL/TLS solution, JSSE provides the `SSLEngine`, which leads to a more complicated solution, since the developer has to implement parts of the protocol himself and also decide the way the transport link will be implemented. Due to the lack of examples i was able to find in the internet, i decided to start a project, in order to explore JSSE, and share it here. More information about JSSE can be found in this link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
+JSSE is the standard way Java provides to implement SSL/TLS communication. One of its core classes is `SSLContext`, which you can easily configure and equally easily get an input and output stream from. These streams though will be blocking, since `available()` will always return false for SSL/TLS connections. In order to achieve a non-blocking SSL/TLS solution, JSSE provides the `SSLEngine`, which leads to a more complicated solution, since the developer has to implement parts of the protocol himself and also decide the way the transport link will be implemented. Due to the lack of examples i was able to find in the Internet, i decided to start a project, in order to explore JSSE, and share it here. More information about JSSE can be found in this link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
 
-## The implementaton
+## The implementation
 
 There are 3 Java classes in the project:
 
