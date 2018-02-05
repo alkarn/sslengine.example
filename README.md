@@ -4,7 +4,7 @@ Implementation of a Java SSL/TLS server and client, making use of JSSE framework
 
 ## An introduction to JSSE
 
-JSSE is the standard way Java provides to implement SSL/TLS communication. One of its core classes is `SSLContext`, which you can easily configure and equally easily get an input and output stream from. These streams though will be blocking, since `available()` will always return false for SSL/TLS connections. In order to achieve a non-blocking SSL/TLS solution, JSSE provides the `SSLEngine`, which leads to a more complicated solution, since the developer has to implement parts of the protocol himself and also decide the way the transport link will be implemented. Due to the lack of examples i was able to find in the Internet, i decided to start a project, in order to explore JSSE, and share it here. More information about JSSE can be found in this link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
+JSSE is the standard way Java provides to implement SSL/TLS communication. One of its core classes is `SSLContext`, which you can easily configure and equally easily get an input and output stream from. These streams though will be blocking, since `available()` will always return false for SSL/TLS connections. In order to achieve a non-blocking SSL/TLS solution, JSSE provides the `SSLEngine`, which leads to a more complicated solution, since the developer has to implement parts of the protocol himself and also decide the way the transport link will be implemented. Due to the lack of examples I was able to find in the Internet, I decided to start a project, in order to explore JSSE, and share it here. More information about JSSE can be found in this link: https://docs.oracle.com/javase/8/docs/technotes/guides/security/jsse/JSSERefGuide.html
 
 ## The implementation
 
@@ -16,7 +16,7 @@ There are 3 Java classes in the project:
         NioSslServer server = new NioSslServer("TLSv1.2", "localhost", 9222);
         server.start();
         
-  After this, the server will wait for new connections and serve the requests that arrive to it. Server is configured to serve the SSL/TLS requests in a very trivial way: it just sends back a "Hello i am your server" response. A Java nio Selector is used in order to serve all clients within a single Thread. To gracefully shutdown the server you can call `server.stop()`.
+  After this, the server will wait for new connections and serve the requests that arrive to it. Server is configured to serve the SSL/TLS requests in a very trivial way: it just sends back a "Hello I am your server" response. A Java nio Selector is used in order to serve all clients within a single Thread. To gracefully shutdown the server you can call `server.stop()`.
 * NioSslClient extends `NioSslPeer` to acts as an SSL/TLS client. To use a client you have to instantiate an object and connect to a running server.
 
         NioSslClient client = new NioSslClient("TLSv1.2", "localhost", 9222);
