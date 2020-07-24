@@ -7,6 +7,7 @@ import java.nio.BufferOverflowException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.security.KeyStore;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -378,4 +379,7 @@ public abstract class NioSslPeer {
         return trustFactory.getTrustManagers();
     }
 
+    protected String peerAppDataAsString() {
+        return new String(Arrays.copyOf(peerAppData.array(), peerAppData.limit()));
+    }
 }
